@@ -624,7 +624,7 @@ with tab6:
     with sim_left:
         hourly_cost = st.slider(
             "Estimasi biaya per server per jam (Rupiah):",
-            min_value=100.0, max_value=15000.0, value=500.0, step=0.05,
+            min_value=100.0, max_value=15000.0, value=500.0, step=50,
             help="Biaya gabungan termasuk komputasi, penyimpanan, lisensi, dan overhead operasional."
         )
 
@@ -693,7 +693,7 @@ with tab6:
         st.markdown(
             f'<div class="savings-card">'
             f'<div class="savings-label">Estimasi penghematan tahunan</div>'
-            f'<div class="savings-value">RP. {annual:,.0f}</div>'
+            f'<div class="savings-value">Rp. {annual:,.0f}</div>'
             f'<p style="color:#15803d; font-size:0.85rem; margin-top:6px;">'
             f'≈ Rp. {monthly:,.0f} / bulan dari {n} server'
             f'</p></div>', unsafe_allow_html=True
