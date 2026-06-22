@@ -623,8 +623,8 @@ with tab6:
 
     with sim_left:
         hourly_cost = st.slider(
-            "Estimasi biaya per server per jam (USD):",
-            min_value=0.05, max_value=10.0, value=0.45, step=0.05,
+            "Estimasi biaya per server per jam (Rupiah):",
+            min_value=100, max_value=15000, value=500, step=0.05,
             help="Biaya gabungan termasuk komputasi, penyimpanan, lisensi, dan overhead operasional."
         )
 
@@ -641,7 +641,7 @@ with tab6:
             explanation = (
                 f"Menonaktifkan semua **{n}** server di Klaster {target} "
                 f"({CLUSTER_META[target]['label']}) menghilangkan biaya operasional mereka sepenuhnya. "
-                f"Penghematan tahunan = {n} server × ${hourly_cost:.2f}/jam × 8.760 jam."
+                f"Penghematan tahunan = {n} server × Rp. {hourly_cost:.2f}/jam × 8.760 jam."
             )
             if CLUSTER_META[target]["risk"] == "high":
                 st.markdown('<div class="callout-warn">⚠️ Ini adalah klaster <strong>berisiko tinggi</strong> '
@@ -693,17 +693,17 @@ with tab6:
         st.markdown(
             f'<div class="savings-card">'
             f'<div class="savings-label">Estimasi penghematan tahunan</div>'
-            f'<div class="savings-value">${annual:,.0f}</div>'
+            f'<div class="savings-value">RP. {annual:,.0f}</div>'
             f'<p style="color:#15803d; font-size:0.85rem; margin-top:6px;">'
-            f'≈ ${monthly:,.0f} / bulan dari {n} server'
+            f'≈ Rp. {monthly:,.0f} / bulan dari {n} server'
             f'</p></div>', unsafe_allow_html=True
         )
 
         st.markdown("")
         st.markdown(
             f'<div class="insight-box"><strong>Cara perhitungan ini:</strong><br>{explanation}<br><br>'
-            f'<strong>Rumus:</strong> {n} server × ${hourly_cost:.2f}/jam × '
-            f'{hours_saved:,.0f} jam dihemat = <strong>${annual:,.0f}/tahun</strong>'
+            f'<strong>Rumus:</strong> {n} server × Rp. {hourly_cost:.2f}/jam × '
+            f'{hours_saved:,.0f} jam dihemat = <strong>Rp. {annual:,.0f}/tahun</strong>'
             f'</div>', unsafe_allow_html=True
         )
 
@@ -720,7 +720,7 @@ with tab6:
         rows.append({
             "Klaster": f"{meta['icon']} {cid}: {meta['label']}",
             "Server": cnt,
-            "Estimasi Biaya Tahunan": f"${full_annual:,.0f}",
+            "Estimasi Biaya Tahunan": f"Rp. {full_annual:,.0f}",
             "Rekomendasi Tindakan": meta["action"],
         })
     st.dataframe(pd.DataFrame(rows), use_container_width=True, hide_index=True)
