@@ -11,7 +11,7 @@ from plotly.subplots import make_subplots
 # PAGE CONFIG
 # ==========================================
 st.set_page_config(
-    page_title="Intelijen Armada Server",
+    page_title="Clustering Server K-Means",
     page_icon="🖥️",
     layout="wide",
     initial_sidebar_state="collapsed"
@@ -568,12 +568,12 @@ with tab4:
 # TAB 5 · HEATMAP PERILAKU
 # ──────────────────────────────────────────
 with tab5:
-    st.markdown("Setiap metrik dinormalisasi dari **0,00 (terendah di armada)** hingga **1,00 (tertinggi di armada)** "
+    st.markdown("Setiap metrik dinormalisasi dari **0,00 (terendah di server)** hingga **1,00 (tertinggi di server)** "
                 "sehingga kita dapat membandingkan CPU, memori, uptime, dan lonjakan secara visual pada skala yang sama — "
                 "meskipun diukur dalam satuan yang berbeda.")
 
     st.markdown('<div class="callout">💡 <strong>Cara membaca heatmap ini:</strong> '
-                'Merah gelap = klaster ini tertinggi pada metrik ini dibanding armada. '
+                'Merah gelap = klaster ini tertinggi pada metrik ini dibanding server. '
                 'Biru gelap = terendah. Klaster yang merah terang pada "Rasio Puncak-ke-Rata CPU" '
                 'tapi biru gelap pada "Rata-rata CPU" adalah profil burst/idle — lonjakan tinggi, baseline rendah.'
                 '</div>', unsafe_allow_html=True)
@@ -708,7 +708,7 @@ with tab6:
         )
 
     st.markdown("---")
-    st.markdown('<div class="section-label">Ringkasan biaya seluruh armada (pada tarif per jam saat ini)</div>',
+    st.markdown('<div class="section-label">Ringkasan biaya seluruh server (pada tarif per jam saat ini)</div>',
                 unsafe_allow_html=True)
 
     rows = []
