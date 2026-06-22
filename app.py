@@ -624,7 +624,7 @@ with tab6:
     with sim_left:
         hourly_cost = st.slider(
             "Estimasi biaya per server per jam (Rupiah):",
-            min_value=100, max_value=15000, value=500, step=0.05,
+            min_value=100.0, max_value=15000.0, value=500.0, step=0.05,
             help="Biaya gabungan termasuk komputasi, penyimpanan, lisensi, dan overhead operasional."
         )
 
